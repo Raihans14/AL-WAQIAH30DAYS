@@ -1,0 +1,198 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    position: relative;
+    overflow-x: hidden;
+    background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    padding: 30px;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    z-index: 10;
+}
+
+header {
+    background: #116530;
+    color: #FFD700;
+    text-align: center;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+}
+
+.header-icon {
+    font-size: 2rem;
+    color: #FFD700;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.mission-board {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+}
+
+.person-card {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 15px;
+    width: 100%;
+    max-width: 500px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.person-header {
+    background: #18864b;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.day-box {
+    background: #f0f0f0;
+    border-radius: 10px;
+    padding: 10px 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80px;
+}
+
+.day-box:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.day-box .date-text {
+    font-size: 0.7rem;
+    color: #666;
+    margin-bottom: 5px;
+    font-weight: 600;
+}
+
+.day-box .star-icon {
+    font-size: 1.8rem;
+    color: #dcdcdc;
+    transition: all 0.4s ease;
+}
+
+.day-box .time-text {
+    font-size: 0.6rem;
+    color: #28a745;
+    margin-top: 5px;
+    font-weight: bold;
+    display: none;
+}
+
+.day-box.completed {
+    background: #fffbe6;
+    border-color: #FFD700;
+}
+
+.day-box.completed .star-icon {
+    color: #FFD700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+    transform: scale(1.1);
+}
+
+.day-box.completed .time-text {
+    display: block;
+}
+
+.stats {
+    background: #f8f9fa;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    border-top: 2px solid #e9ecef;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Responsif untuk layar kecil */
+@media screen and (max-width: 992px) {
+    .mission-board {
+        flex-direction: column;
+        align-items: center;
+    }
+    .person-card {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+    .header-icon {
+        font-size: 1.2rem;
+    }
+    .grid-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .stats {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
